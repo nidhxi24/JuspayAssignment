@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+**React Dashboard App**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive dashboard application built with React.js, featuring:
 
-## Available Scripts
+- Sidebar navigation
 
-In the project directory, you can run:
+- Top navbar with toggles
 
-### `npm start`
+- Rightbar (collapsible)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Dark mode support
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Dashboard with charts
 
-### `npm test`
+- Ecommerce order list
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Features**
 
-### `npm run build`
+Sidebar Navigation – Navigate between Dashboard and Ecommerce pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Collapsible Sidebar & Rightbar – Easily toggle panels for more space.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dark Mode Toggle – Switch between light and dark themes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dashboard – Displays charts (built using Recharts
+).
 
-### `npm run eject`
+Ecommerce (Order List) – Shows tabular order data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Cross browser compatibility
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Project Structure**
+src/
+├── App.js            # Main entry with layout, dark mode, page routing
+├── App.css           # Global styles
+├── components/
+│   ├── Sidebar.js    # Sidebar navigation
+│   ├── Navbar.js     # Top navigation bar
+│   ├── Dashboard.js  # Dashboard with charts
+│   ├── Rightbar.js   # Collapsible right sidebar
+│   ├── OrderList.js  # Ecommerce order list page
+│   └── ...           # Additional component styles/icons
+└── icons/            # SVG icons
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Installation & Setup
+**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install dependencies:
 
-## Learn More
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Start development server:
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Open http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Dependencies**
 
-### Making a Progressive Web App
+React (UI library)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Recharts (charts in Dashboard)
 
-### Advanced Configuration
+React Icons / SVGs (for icons)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+CSS Modules / Custom CSS (styling)
 
-### Deployment
+****Dark Mode
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Controlled via isDarkMode state in App.js.
 
-### `npm run build` fails to minify
+Passed down as a prop to components (Sidebar, Navbar, Dashboard, OrderList).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Styles change dynamically in dark mode using CSS overrides (body.dark).
+
+**Usage
+**
+Dashboard Page: Displays revenue trends using line charts.
+
+Ecommerce Page: Displays order list in a styled table.
+
+Sidebar: Click menu items to switch between pages.
+
+Navbar: Toggle sidebar, rightbar, and dark mode.
+
+
+🖼️ Preview
+
+✨ Dashboard with charts and dark mode:
+
+<img width="1845" height="1055" alt="Screenshot from 2025-09-21 22-38-22" src="https://github.com/user-attachments/assets/3632cca9-b005-401d-a1a2-a88092eb19d8" />
+<img width="1850" height="970" alt="Screenshot from 2025-09-21 22-38-58" src="https://github.com/user-attachments/assets/c8c622f3-4675-4eab-936b-b4fc74c02726" />
+<img width="1845" height="1005" alt="Screenshot from 2025-09-21 22-39-30" src="https://github.com/user-attachments/assets/f53f4885-b90e-4043-93df-061261b7562d" />
+<img width="1845" height="966" alt="Screenshot from 2025-09-21 22-40-14" src="https://github.com/user-attachments/assets/7f2d8eba-f715-4f51-98a5-81b2da73f5aa" />
+<img width="1840" height="965" alt="Screenshot from 2025-09-21 22-40-50" src="https://github.com/user-attachments/assets/e203a605-74b6-4cac-af17-9b12baca5e1d" />
+
+
+
+
+👩‍💻 Author
+
+Developed by Your Nidhi.
