@@ -1,0 +1,152 @@
+.order-list {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    margin: 0;
+  }
+  
+  .search-sort {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-sort input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .sort-buttons button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-table th, .order-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .order-table th {
+    color: #1C1C1C66;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  
+  .order-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .in-progress {
+    color: #f39c12;
+  }
+  
+  .complete {
+    color: #2ecc71;
+  }
+  
+  .pending {
+    color: #f1c40f;
+  }
+  
+  .approved {
+    color: #3498db;
+  }
+  
+  .rejected {
+    color: #e74c3c;
+  }
+  .order-toolbar {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f7f9fb;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    align-items: center;
+  }
+  
+  .status {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .status.in-progress {
+    color: #3498db;
+  }
+  
+  .status.complete {
+    color: #2ecc71;
+  }
+  
+  .status.pending {
+    color: #f1c40f;
+  }
+  
+  .status.approved {
+    color: #9b59b6;
+  }
+  
+  .status.rejected {
+    color: #e74c3c;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+    gap: 4px;
+  }
+  
+  .pagination-btn {
+    border: none;
+    /* border: 1px solid #ddd; */
+    background: #fff;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pagination-btn.active {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+  .search-box-hdr {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9fafb;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    flex: 1;
+    max-width: 250px;
+    width: 20%;
+  }
+  
+  .search-box-hdr input {
+    border: none;
+    outline: none;
+    background: transparent;
+    /* font-size: 0.9rem; */
+    flex: 1;
+  }
+    

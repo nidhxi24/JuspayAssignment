@@ -1,0 +1,136 @@
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  width: 260px;
+  height: 100vh;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  border-right: 2px solid #f3f4f6; 
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.sidebar-section + .sidebar-section {
+  margin-top: 1.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.sidebar li:hover {
+  background: #f3f4f6;
+}
+
+.chevron {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 2.5rem; 
+  margin: 0;
+}
+
+.submenu li {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.submenu li:hover {
+  background: #f3f4f6;
+}
+
+.chevron.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+
+.sidebar-header .profile-icon {
+  font-size: 2rem; 
+  margin-right: 0.5rem;
+}
+
+.sidebar-mini .mini-header {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-mini .mini-list {
+  list-style-type: disc;   
+  padding-left: 1.5rem;    
+  font-size: 0.85rem;     
+}
+
+.submenu {
+  list-style-type: disc; 
+  padding-left: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.sidebar-section .section-title {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.sidebar li.active {
+  background: #1C1C1C0D;
+}
+
+.active-line {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: black;
+  border-radius: 2px;
+  margin-right: 6px;
+}

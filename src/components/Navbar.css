@@ -1,0 +1,75 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 0.75rem 2rem;
+    border-bottom: 2px solid #e5e7eb;
+    width: 100%;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #6b7280;
+    width: 65%;
+  }
+  
+  .nav-left .icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .breadcrumb strong {
+    color: #111827;
+  }
+  
+  .slash {
+    margin: 0 0.3rem;
+    color: #d1d5db;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9fafb;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    flex: 1;
+    max-width: 250px;
+    width: 20%;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+  
+  .shortcut {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    background: #f3f4f6;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+  }
+  
+  .nav-icons {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 1.25rem;
+    color: #4b5563;
+    width: 15%;
+    justify-content: end;
+  }
+  

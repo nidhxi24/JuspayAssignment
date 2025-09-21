@@ -1,38 +1,695 @@
-.App {
-  text-align: center;
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.number-box {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  letter-spacing: normal !important;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  background-color: white;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.sidebar {
+  width: 250px;
+}
+.rightbar {
+  width: 250px;
+}
+
+.no-sidebar {
+  margin-left: 0;
+}
+
+.no-rightbar {
+  margin-right: 0;
+}
+
+ */
+
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* Light theme variables (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  --navbar-bg: #f9fafb;
+  --navbar-border: grey;
+
+  --sidebar-bg: #f3f4f6;
+  --sidebar-text: #111827;
+  --sidebar-hover: #FFFFFF0D;
+
+  --rightbar-bg: #f3f4f6;
+  --rightbar-text: #111827;
+
+  --main-bg: #ffffff;
+  --main-text: #111827;
+
+  --card-bg: #ffffff;
+  --card-border: grey;
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  --input-bg: #f9fafb;
+  --input-text: #111827;
+  --input-border: grey;
+  --input-focus-border: #3b82f6;
+  --input-focus-shadow: rgba(59, 130, 246, 0.1);
+
+  --button-hover: #FFFFFF0D;
+  --border-color: #f3f4f6;
+
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Dark theme variables */
+body.dark {
+  --bg-color: #ffffff1a;
+  --text-color: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --navbar-bg: #FFFFFF0D;
+  --navbar-border: #FFFFFF0D;
+
+  --sidebar-bg: #1c1c1c;
+  --sidebar-text: #f1f5f9;
+  --sidebar-hover: #FFFFFF0D;
+
+  --rightbar-bg: #1c1c1c;
+  --rightbar-text: #f1f5f9;
+
+  --main-bg: #ffffff1a;
+  --main-text: #f1f5f9;
+
+  --card-bg: #FFFFFF0D;
+  --card-border: #FFFFFF0D;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  --input-bg: #FFFFFF0D;
+  --input-text: #f1f5f9;
+  --input-border: #475569;
+  --input-focus-border: #60a5fa;
+  --input-focus-shadow: rgba(96, 165, 250, 0.2);
+
+  --button-hover: #FFFFFF0D;
+  --border-color: #FFFFFF0D;
+
+  --success-color: #34d399;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+  --info-color: #60a5fa;
+
+  --gradient-primary: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+  --gradient-secondary: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+}
+
+/* Body & app layout */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* Main content */
+.main-content {
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  flex: 1;
+  transition: all 0.3s ease;
+  overflow: auto;
+}
+
+/* Sidebar & Rightbar */
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-right: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+.rightbar {
+  width: 300px;
+  background-color: var(--rightbar-bg);
+  color: var(--rightbar-text);
+  border-left: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+/* Closed sidebar/rightbar adjustments */
+.no-sidebar {
+  margin-left: 0;
+}
+
+.no-rightbar {
+  margin-right: 0;
+}
+
+/* Navbar base styles */
+.navbar {
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 60px;
+  border-bottom: 1px solid var(--navbar-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-left,
+.navbar .nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Button styles */
+.sidebar-toggle-btn,
+.rightbar-toggle-btn,
+.theme-toggle-btn,
+.nav-icons button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-toggle-btn:hover,
+.rightbar-toggle-btn:hover,
+.theme-toggle-btn:hover,
+.nav-icons button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-1px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Breadcrumb styles */
+.navbar .breadcrumb {
+  font-size: 14px;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.navbar .slash {
+  margin: 0 4px;
+  color: var(--text-secondary);
+}
+
+.navbar strong {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Search box styles */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--input-bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.search-box:focus-within {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow);
+}
+
+.search-box svg {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--input-text);
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-box input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* KPI number styling */
+.number-box {
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+  letter-spacing: normal !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* Utility classes */
+.text-success {
+  color: var(--success-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+.text-error {
+  color: var(--error-color);
+}
+
+.text-info {
+  color: var(--info-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
+/* Animation for theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--input-focus-border);
+  outline-offset: 2px;
+}
+
+/* Global Dark Mode Overrides - Add this to the end of your App.css */
+
+/* Dark mode overrides for all components */
+body.dark {
+  /* Sidebar overrides */
+  --sidebar-bg: #1c1c1c;
+  --sidebar-text: #f1f5f9;
+  --sidebar-hover: #FFFFFF0D;
+
+  /* Rightbar overrides */
+  --rightbar-bg: #1c1c1c;
+  --rightbar-text: #f1f5f9;
+
+  /* Dashboard overrides */
+  --main-bg: #1c1c1c;
+  /* --main-bg: #1C1C1CCC; */
+  --main-text: #f1f5f9;
+  --card-bg: #FFFFFF0D;
+  --card-border: #FFFFFF0D;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  /* Text colors */
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* Input and button colors */
+  --input-bg: #FFFFFF0D;
+  --button-hover: #FF;
+  --border-color: #FFFFFF0D;
+}
+
+/* Force override hardcoded colors in dark mode */
+body.dark .sidebar {
+  background: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+  border-right-color: var(--border-color) !important;
+}
+
+body.dark .sidebar .brand,
+body.dark .sidebar li {
+  color: var(--sidebar-text) !important;
+}
+
+body.dark .sidebar li:hover {
+  background: var(--sidebar-hover) !important;
+}
+
+body.dark .pagination-btn{
+  background-color: #FFFFFF0D;
+
+}
+
+body.dark .sidebar .section-title {
+  color: var(--text-secondary) !important;
+}
+
+body.dark .rightbar {
+  background: var(--rightbar-bg) !important;
+  color: var(--rightbar-text) !important;
+  border-left-color: var(--border-color) !important;
+}
+
+body.dark .rightbar .panel h3 {
+  color: var(--rightbar-text) !important;
+}
+
+body.dark .rightbar .info p {
+  color: var(--rightbar-text) !important;
+}
+
+body.dark .rightbar .info small {
+  color: var(--text-secondary) !important;
+}
+
+body.dark .rightbar .icon {
+  background: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+body.dark .rightbar .avatar {
+  background: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+body.dark .search-box{
+  background-color: #FFFFFF0D;
+}
+
+body.dark .search-box-hdr{
+  background-color: #FFFFFF0D;
+  border: 1px solid #475569;
+
+}
+
+/* Dashboard dark mode overrides */
+body.dark .dashboard,
+body.dark .main-content, .navbar {
+  background: var(--main-bg) !important;
+  color: var(--main-text) !important;
+}
+body.dark .order-table th, .order-table td {
+  border-bottom: 1px solid #374151;
+}
+
+body.dark .order-table tr, .order-table td {
+  border-bottom: 1px solid #FFFFFF0D !important;
+}
+
+/* Override any white backgrounds in dark mode */
+body.dark div,
+body.dark section,
+body.dark article {
+  /* background-color: inherit; */
+}
+
+/* Ensure all text is readable in dark mode */
+body.dark * {
+  color: inherit;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 12px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search-box {
+    min-width: 150px;
   }
+
+  .breadcrumb {
+    display: none;
+  }
+}
+
+/* Add these styles to your existing CSS files */
+
+/* Modal Dark Mode Styles */
+body.dark .modal-overlay {
+  background-color: #1c1c1ccc !important; /* Semi-transparent dark background */
+}
+
+body.dark .modal,
+body.dark .modal-content {
+  background-color: #FFFFFF0D !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+body.dark .modal-header {
+  background-color: #FFFFFF0D !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+body.dark .modal-body {
+  background-color: #FFFFFF0D !important;
+  color: var(--text-color) !important;
+}
+
+body.dark .modal-footer {
+  background-color: #FFFFFF0D !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+/* Updated Card Colors for Dark Mode */
+body.dark .card {
+  background-color: #FFFFFF0D !important;
+  border: 1px solid #FFFFFF0D !important;
+  color: var(--text-color) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Dashboard specific card updates */
+body.dark .kpi-card {
+  /* border: 1px solid #FFFFFF0D !important; */
+  /* color: var(--text-color) !important; */
+}
+
+body.dark .kpi-card.customers {
+  background-color: #e3f5ff !important; /* Changed from light blue */
+  color: #1c1c1c !important;
+}
+
+body.dark .kpi-card.white {
+  background-color: #FFFFFF0D !important; /* Changed from light gray */
+}
+
+body.dark .kpi-card.growth {
+  background-color: #e5ecf6 !important; /* Changed from light gray */
+  color: #1c1c1c !important;
+}
+
+body.dark .projections-chart,
+body.dark .revenue-chart,
+body.dark .location-section,
+body.dark .products-section,
+body.dark .sales-section {
+  background-color: #FFFFFF0D !important;
+  color: var(--text-color) !important;
+  border: 1px solid #FFFFFF0D !important;
+}
+
+body.dark .sales-section-location{
+  background-color: #FFFFFF0D !important;
+}
+
+body.dark .active-line {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: white; /* or #000 */
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+
+/* World map container dark mode */
+body.dark .world-map-container {
+  background-color: #FFFFFF0D !important;
+  border: 1px solid #FFFFFF0D !important;
+}
+body.dark .legend-dot.current {
+  background-color: #c6c7f8;
+}
+
+/* Pie chart center background in dark mode */
+body.dark .pie-chart-inner {
+  background-color: #FFFFFF0D !important;
+  color: var(--text-color) !important;
+}
+
+body.dark .order-table tr:hover {
+  background-color: #FFFFFF0D;
+}
+
+body.dark .order-table th {
+  color: #FFFFFF66;
+}
+
+body.dark .order-toolbar {
+  background-color: #FFFFFF0D;
+}
+
+/* Table styling for dark mode */
+body.dark .products-table {
+  color: var(--text-color) !important;
+}
+
+body.dark .products-table thead tr {
+  border-bottom: 1px solid #FFFFFF0D !important;
+}
+
+body.dark .products-table tr {
+  border-bottom: 1px solid #FFFFFF0D !important;
+}
+
+body.dark .products-table th {
+  color: var(--text-secondary) !important;
+}
+
+body.dark .products-table tbody tr {
+  /* border-bottom: 1px solid #FFFFFF0D !important; */
+}
+
+body.dark .products-table td {
+  color: var(--text-color) !important;
+}
+
+/* Legend and other text elements */
+body.dark .chart-title,
+body.dark .section-title,
+body.dark .kpi-card-label,
+body.dark .kpi-card-value,
+body.dark .pie-percentage {
+  /* color: var(--text-color) !important; */
+}
+
+body.dark .legend-item,
+body.dark .location-text,
+body.dark .location-value,
+body.dark .sales-legend-text,
+body.dark .sales-legend-value {
+  color: var(--text-color) !important;
+}
+
+/* Additional modal backdrop styles for better visual separation */
+body.dark .modal-backdrop {
+  background-color: #1c1c1ccc !important;
+}
+
+/* Ensure all child elements inherit proper colors */
+body.dark .modal *,
+body.dark .card * {
+  color: inherit;
+}
+
+/* Button styles in modals for dark mode */
+body.dark .modal .btn-primary {
+  background-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+}
+
+body.dark .modal .btn-secondary {
+  background-color: #6b7280 !important;
+  border-color: #6b7280 !important;
+  color: #ffffff !important;
+}
+
+body.dark .modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
 }

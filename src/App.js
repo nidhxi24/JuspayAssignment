@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
+import Rightbar from "./components/Rightbar";
+import OrderList from "./components/OrderList";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [currentPage, setCurrentPage] = useState("dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [rightbarOpen, setRightbarOpen] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const toggleRightbar = () => setRightbarOpen(!rightbarOpen);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    if (page === "ecommerce") {
+      setRightbarOpen(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      {sidebarOpen && <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} onPageChange={handlePageChange} isDarkMode= {isDarkMode} />}
+      <div
+        className={`main-content 
+          ${!sidebarOpen ? "no-sidebar" : ""} 
+          ${!rightbarOpen ? "no-rightbar" : ""}`}
+      >
+        <Navbar
+          onToggleSidebar={toggleSidebar}
+          onToggleRightbar={toggleRightbar}
+          sidebarOpen={sidebarOpen}
+          rightbarOpen={rightbarOpen}
+          isDarkMode= {isDarkMode} 
+          setIsDarkMode = {setIsDarkMode}
+        />
+
+        {currentPage === "dashboard" && <Dashboard isDarkMode= {isDarkMode}/>}
+        {currentPage === "ecommerce" && <OrderList  isDarkMode= {isDarkMode} />}
+      </div>
+
+      {rightbarOpen && <Rightbar />}
     </div>
   );
 }
-
-export default App;
